@@ -12,6 +12,7 @@ class TweetAdmin(admin.ModelAdmin):
                     "id",
                     "payload",
                     "user",
+                    "total_likes_count",
                     "created_at",
                     "updated_at",
                 ),
@@ -20,7 +21,13 @@ class TweetAdmin(admin.ModelAdmin):
         ),
     )
 
-    list_display = ("id", "user", "payload", "created_at")
+    list_display = (
+        "id",
+        "user",
+        "payload",
+        "total_likes_count",
+        "created_at",
+    )
     readonly_fields = ("id", "created_at", "updated_at")
 
 
