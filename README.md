@@ -6,5 +6,10 @@ $ poetry shell
 $ django-admin startproject config .
 
 
+$ python manage.py startapp <app>
+$ python manage.py runserver
 
+
+$ python manage.py makemigrations
+$ python manage.py migrate
 ```
