@@ -42,6 +42,7 @@ class TweetDetail(APIView):
 
     def put(self, request, pk):
         tweet = self.get_object(pk)
+        self.check_object_permissions(request, tweet)
         if tweet.user != request.user:
             raise PermissionDenied("Only the author can update")
         serializer = TweetSerializer(tweet, data=request.data, partial=True)
@@ -57,6 +58,7 @@ class TweetDetail(APIView):
 
     def delete(self, request, pk):
         tweet = self.get_object(pk)
+        self.check_object_permissions(request, tweet)
         if tweet.user != request.user:
             raise PermissionDenied("Only the author can delete")
         tweet.delete()
